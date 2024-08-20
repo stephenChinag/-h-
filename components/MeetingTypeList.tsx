@@ -24,9 +24,17 @@ export default function MeetingTypeList() {
   });
 
   const { toast } = useToast();
+
+  // creating a Meeting
   const createMeeting = async () => {
     if (!client || !user) return;
     try {
+      if (!values.dateTime) {
+        toast({
+          title: " Please Select a date and Time",
+        });
+        return;
+      }
       const id = crypto.randomUUID();
       const call = client.call("default", id);
 
@@ -47,8 +55,14 @@ export default function MeetingTypeList() {
       if (!values.description) {
         router.push(`/meeting/${call.id}`);
       }
+      toast({
+        title: "Meeting Created ",
+      });
     } catch (error) {
       console.log(error);
+      toast({
+        title: "Faild to Create meeting",
+      });
     }
   };
   return (
