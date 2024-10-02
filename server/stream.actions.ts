@@ -13,7 +13,7 @@ export const tokenProvider = async () => {
     throw new Error("User Not Authenticated ");
   }
   if (!apiKey) {
-    throw new Error(" No API kEY");
+    throw new Error(" No API key");
   }
 
   if (!apiSecret) {
