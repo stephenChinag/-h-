@@ -23,6 +23,7 @@ import { LayoutList, Users } from "lucide-react";
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
 
 export default function MeetingRoom() {
+  const [isPersonalRoom, setIsPersonal] = useState();
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
   const [showParticipants, setshowParticipants] = useState(false);
   const CallLayout = () => {
@@ -59,10 +60,6 @@ export default function MeetingRoom() {
           </div>
           <DropdownMenuContent className="border-dark-1  bg-dark-1 text-white">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            {/* <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem> */}
             {["Grid", "Speaker-Left", "Speaker-Right"].map((item, index) => (
               <div key={index}>
                 <DropdownMenuItem
